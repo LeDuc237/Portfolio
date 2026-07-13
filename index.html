@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<!-- ===== TAB BAR ===== -->
+
 <header class="tabbar" role="navigation" aria-label="Navigation principale">
   <div class="dots">
     <span></span><span></span><span></span>
@@ -39,6 +39,12 @@
     </a>
   </nav>
   <div class="tabbar-cta">
+   
+    <div class="lang-switch-header" id="langSwitchHeader">
+      <button data-lang="fr" class="active">FR</button>
+      <button data-lang="en">EN</button>
+    </div>
+
     <a href="#contact" class="btn btn-primary" data-i18n="tab.cta">
       Me contacter
     </a>
@@ -58,12 +64,11 @@
   <a href="#projects" class="tab" data-i18n="tab.projects">Projects/</a>
   <a href="#journey" class="tab" data-i18n="tab.journey">log.git</a>
   <a href="#contact" class="tab" data-i18n="tab.contact">Contact.env</a>
+ 
 </nav>
 
-<!-- ===== MAIN CONTENT ===== -->
 <main>
 
-  <!-- SECTION: HERO -->
   <section class="hero" id="hero">
     <div class="container hero-grid">
       <div>
@@ -75,14 +80,30 @@
           </div>
           <div class="terminal-body" id="typedTerminal"></div>
         </div>
+    
+        <div class="hero-contact-bar">
+          <a href="tel:+237659827131" class="hero-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            +237 659 827 131
+          </a>
+          <a href="https://wa.me/237659827131" target="_blank" class="hero-contact-item whatsapp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir mes projets</a>
           <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Me contacter</a>
           <a href="https://github.com/leduc" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/duchel-descartes" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+          <a href="https://www.linkedin.com/in/duchel-decarte" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
         </div>
       </div>
-      <div class="hero-photo-wrap">
+      <!-- Photo cachée sur mobile -->
+      <div class="hero-photo-wrap hide-mobile">
         <div class="hero-photo-frame reveal">
           <img src="assets/profile-placeholder.png" alt="Ateuf Ngeufo Duchel Decarte" loading="lazy">
           <div class="hero-photo-tag">
@@ -94,7 +115,6 @@
     </div>
   </section>
 
-  <!-- SECTION: ABOUT -->
   <section class="section" id="about">
     <div class="container">
       <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
@@ -131,7 +151,7 @@
     </div>
   </section>
 
-  <!-- SECTION: SKILLS -->
+
   <section class="section" id="skills">
     <div class="container">
       <p class="eyebrow" data-i18n="skills.eyebrow">Compétences</p>
@@ -189,7 +209,7 @@
     </div>
   </section>
 
-  <!-- SECTION: PROJECTS -->
+
   <section class="section" id="projects">
     <div class="container">
       <p class="eyebrow" data-i18n="projects.eyebrow">Projets</p>
@@ -198,30 +218,7 @@
 
       <div class="projects-grid">
 
-        <!-- GeoCasa - Logiciel Privé -->
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/54.png" alt="GeoCasa - Gestion Cadastrale" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">GeoCasa</span>
-            <span class="repo-status private" data-i18n="projects.private">Logiciel Privé</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.geocasa">PWA offline-first pour la gestion cadastrale et immobilière : dossiers, phases, paiements — accessible même sans connexion internet stable.</p>
-          <div class="lang-bar">
-            <span style="width:55%;background:#7fb8e0"></span>
-            <span style="width:25%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>IndexedDB</span>
-          </div>
-          <div class="repo-foot">
-            <span class="repo-private-badge">🔒 Logiciel Privé</span>
-          </div>
-        </article>
-
-        <!-- FOROMAMED -->
+     
         <article class="repo-card reveal">
           <div class="repo-image">
             <img src="assets/foromamed.png" alt="FOROMAMED - Matériel Orthopédique" loading="lazy">
@@ -244,7 +241,7 @@
           </div>
         </article>
 
-        <!-- YourChemLab -->
+       
         <article class="repo-card reveal">
           <div class="repo-image">
             <img src="assets/yourchemlab.png" alt="YourChemLab - Laboratoire Chimique" loading="lazy">
@@ -267,7 +264,6 @@
           </div>
         </article>
 
-        <!-- Ingénuim Elect -->
         <article class="repo-card reveal">
           <div class="repo-image">
             <img src="assets/ingeniumelect.png" alt="Ingénuim Elect - Ingénierie Électrique" loading="lazy">
@@ -290,30 +286,7 @@
           </div>
         </article>
 
-        <!-- M7 GOAT - En Suspension -->
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/M7goat.png" alt="M7 GOAT - Soins Capillaires" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">M7 GOAT</span>
-            <span class="repo-status paused" data-i18n="projects.paused">En Suspension</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.m7goat">Solutions naturelles pour la croissance des cheveux — produits biologiques premium pour des cheveux sains, forts et magnifiques.</p>
-          <div class="lang-bar">
-            <span style="width:40%;background:#7fb8e0"></span>
-            <span style="width:30%;background:var(--gold)"></span>
-            <span style="width:30%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
-          </div>
-          <div class="repo-foot">
-            <span class="repo-paused-badge">⏸️ En Suspension</span>
-          </div>
-        </article>
-
-        <!-- Blend Hair - Avec Stripe -->
+     
         <article class="repo-card reveal">
           <div class="repo-image">
             <img src="assets/blendair.png" alt="Blend Hair - Cheveux Afro Kinky" loading="lazy">
@@ -336,7 +309,7 @@
           </div>
         </article>
 
-        <!-- Clinique Mains Douces -->
+
         <article class="repo-card reveal">
           <div class="repo-image">
             <img src="assets/cliniquemaindouce.png" alt="Clinique Mains Douces - Centre Médical" loading="lazy">
@@ -359,7 +332,29 @@
           </div>
         </article>
 
-        <!-- Holding - Logiciel Privé pour Structure Complète -->
+       
+        <article class="repo-card reveal">
+          <div class="repo-image">
+            <img src="assets/54.png" alt="GeoCasa - Gestion Cadastrale" loading="lazy">
+          </div>
+          <div class="repo-top">
+            <span class="repo-name">GeoCasa</span>
+            <span class="repo-status private" data-i18n="projects.private">Logiciel Privé</span>
+          </div>
+          <p class="repo-desc" data-i18n="projects.geocasa">PWA offline-first pour la gestion cadastrale et immobilière : dossiers, phases, paiements — accessible même sans connexion internet stable.</p>
+          <div class="lang-bar">
+            <span style="width:55%;background:#7fb8e0"></span>
+            <span style="width:25%;background:var(--gold)"></span>
+            <span style="width:20%;background:var(--green)"></span>
+          </div>
+          <div class="repo-tech">
+            <span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>IndexedDB</span>
+          </div>
+          <div class="repo-foot">
+            <span class="repo-private-badge">🔒 Logiciel Privé</span>
+          </div>
+        </article>
+
         <article class="repo-card reveal">
           <div class="repo-image">
             <img src="assets/SARL.png" alt="Holding - Gestion de Structure" loading="lazy">
@@ -382,6 +377,29 @@
           </div>
         </article>
 
+
+        <article class="repo-card reveal">
+          <div class="repo-image">
+            <img src="assets/M7goat.png" alt="M7 GOAT - Soins Capillaires" loading="lazy">
+          </div>
+          <div class="repo-top">
+            <span class="repo-name">M7 GOAT</span>
+            <span class="repo-status paused" data-i18n="projects.paused">En Suspension</span>
+          </div>
+          <p class="repo-desc" data-i18n="projects.m7goat">Solutions naturelles pour la croissance des cheveux — produits biologiques premium pour des cheveux sains, forts et magnifiques.</p>
+          <div class="lang-bar">
+            <span style="width:40%;background:#7fb8e0"></span>
+            <span style="width:30%;background:var(--gold)"></span>
+            <span style="width:30%;background:var(--green)"></span>
+          </div>
+          <div class="repo-tech">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+          </div>
+          <div class="repo-foot">
+            <span class="repo-paused-badge">⏸️ En Suspension</span>
+          </div>
+        </article>
+
         <!-- Voir plus sur GitHub -->
         <article class="repo-card reveal github-more" style="justify-content:center;align-items:center;text-align:center;min-height:200px;">
           <div style="font-size:48px;margin-bottom:16px;">🚀</div>
@@ -396,7 +414,7 @@
     </div>
   </section>
 
-  <!-- SECTION: JOURNEY -->
+ 
   <section class="section" id="journey">
     <div class="container">
       <p class="eyebrow" data-i18n="journey.eyebrow">Parcours</p>
@@ -448,7 +466,7 @@
     </div>
   </section>
 
-  <!-- SECTION: CONTACT -->
+ 
   <section class="section" id="contact" style="border-bottom:none;">
     <div class="container">
       <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
@@ -478,6 +496,10 @@
             <div class="env-row">
               <span class="env-key">PHONE_2=</span>
               <span class="env-val"><a href="tel:+237651203488">+237 651 203 488</a></span>
+            </div>
+            <div class="env-row">
+              <span class="env-key">WHATSAPP=</span>
+              <span class="env-val"><a href="https://wa.me/237659827131" target="_blank">wa.me/237659827131</a></span>
             </div>
             <div class="env-row">
               <span class="env-key">GITHUB=</span>
@@ -511,20 +533,24 @@
             Envoyer le message
           </button>
           <p class="form-note" data-i18n="contact.note">Ouvre votre application de messagerie avec le message pré-rempli.</p>
+          <p class="form-note" style="margin-top:6px;">
+            💬 Ou contactez-moi directement sur <a href="https://wa.me/237659827131" target="_blank" style="color:var(--gold);">WhatsApp</a>
+          </p>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
+
   <footer class="footer container">
     <div class="footer-brand">
-      © 2026 Ateuf Ngeufo Duchel Decarte — <span data-i18n="footer.built">Conçu &amp; développé avec React/TS habits</span>
+      © 2026 Duchel Decarte — <span data-i18n="footer.built">Conçu &amp; développé avec React/TS habits</span>
     </div>
     <div class="footer-links">
       <a href="mailto:ducheldecarte@gmail.com">Email</a>
+      <a href="https://wa.me/237659827131" target="_blank">WhatsApp</a>
       <a href="https://github.com/leduc" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/duchel-descartes" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/duchel-decarte" target="_blank" rel="noopener">LinkedIn</a>
       <a href="tel:+237659827131">Téléphone</a>
     </div>
   </footer>
@@ -542,6 +568,7 @@
   </div>
   <div class="side">
     <span class="item statusbar-hide-mobile">UTF-8</span>
+   
     <div class="lang-switch" id="langSwitch">
       <button data-lang="fr" class="active">FR</button>
       <button data-lang="en">EN</button>
@@ -549,7 +576,7 @@
   </div>
 </footer>
 
-<!-- ===== CHAT BOT ===== -->
+
 <div class="chatbot-container" id="chatbotContainer">
   <button class="chatbot-toggle" id="chatbotToggle" aria-label="Ouvrir le chat">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -584,21 +611,11 @@
       <button class="chatbot-back" id="chatbotBack" style="margin-top:8px;background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:12px;">← Retour</button>
     </div>
 
-    <!-- Niveau 3: Budget -->
-    <div class="chatbot-budget" id="chatbotBudget" style="display:none;">
-      <p style="color:var(--text-dim);font-size:13px;margin-bottom:8px;">Quel est votre budget approximatif ?</p>
-      <button class="budget-option" data-budget="petit">💵 Petit (moins de 500k FCFA)</button>
-      <button class="budget-option" data-budget="moyen">💰 Moyen (500k - 1.5M FCFA)</button>
-      <button class="budget-option" data-budget="grand">💎 Grand (1.5M - 5M FCFA)</button>
-      <button class="budget-option" data-budget="entreprise">🏢 Entreprise (5M+ FCFA)</button>
-      <button class="budget-option" data-budget="pas-sur">🤔 Pas sûr/e</button>
-    </div>
-
-    <!-- Niveau 4: WhatsApp -->
+    <!-- Niveau 3: WhatsApp direct -->
     <div class="chatbot-whatsapp" id="chatbotWhatsapp" style="display:none;">
       <p style="color:var(--text-dim);font-size:14px;margin-bottom:12px;">
         Parfait ! 📱<br>
-        Contactez-moi directement sur WhatsApp pour finaliser votre projet.
+        Contactez-moi directement sur WhatsApp pour discuter de votre projet.
       </p>
       <a href="https://wa.me/237659827131?text=Bonjour%20Duchel%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20!" 
          target="_blank" 

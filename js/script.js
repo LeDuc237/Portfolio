@@ -170,6 +170,7 @@ const terminalLines = {
     { t: 'indent' }, { t: 'prop', v: 'role' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Développeur Logiciel'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'location' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Yaoundé, Cameroun'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'experience' }, { t: 'punc', v: ': ' }, { t: 'num', v: '5' }, { t: 'punc', v: ', // années' }, { t: 'nl' },
+      { t: 'indent' }, { t: 'prop', v: 'telephone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 659 827 131' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'stack' }, { t: 'punc', v: ': [' }, { t: 'str', v: "'React'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'TypeScript'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Next.js'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Vite'" }, { t: 'punc', v: '],' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'buildsOffline' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'usesAI' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'nl' },
@@ -182,6 +183,7 @@ const terminalLines = {
     { t: 'indent' }, { t: 'prop', v: 'role' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Software Engineer'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'location' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Yaoundé, Cameroon'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'experience' }, { t: 'punc', v: ': ' }, { t: 'num', v: '5' }, { t: 'punc', v: ', // years' }, { t: 'nl' },
+    { t: 'indent' }, { t: 'prop', v: 'phone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 659 827 131' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'stack' }, { t: 'punc', v: ': [' }, { t: 'str', v: "'React'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'TypeScript'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Next.js'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Vite'" }, { t: 'punc', v: '],' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'buildsOffline' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'usesAI' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'nl' },
@@ -317,7 +319,6 @@ function initChatbot() {
   const options = document.getElementById('chatbotOptions');
   const subOptions = document.getElementById('chatbotSubOptions');
   const subContainer = document.getElementById('subOptionsContainer');
-  const budget = document.getElementById('chatbotBudget');
   const whatsapp = document.getElementById('chatbotWhatsapp');
   const resetBtn = document.getElementById('chatbotReset');
   const backBtn = document.getElementById('chatbotBack');
@@ -331,9 +332,10 @@ function initChatbot() {
     'site-web': {
       label: '🌐 Site Web',
       subOptions: [
-        { id: 'site-vitrine', label: 'Site Vitrine', price: '150k - 400k FCFA' },
-        { id: 'site-ecommerce', label: 'Site E-commerce', price: '300k - 800k FCFA' },
-        { id: 'site-sur-mesure', label: 'Site Web sur Mesure', price: '500k - 1.5M FCFA' }
+        { id: 'site-vitrine', label: 'Site Vitrine', price: '50k - 150k FCFA' },
+        { id: 'site-ecommerce', label: 'Site E-commerce', price: '200k - 800k FCFA' },
+        { id: 'site-sur-mesure', label: 'Site Web sur Mesure', price: '500k - 1.5M FCFA' },
+        { id: 'discuter', label: '🤔 Pas sûr, je veux en discuter', price: 'Sur devis' }
       ]
     },
     'application-mobile': {
@@ -341,23 +343,26 @@ function initChatbot() {
       subOptions: [
         { id: 'app-simple', label: 'Application Simple', price: '500k - 1M FCFA' },
         { id: 'app-moyenne', label: 'Application Moyenne', price: '1M - 3M FCFA' },
-        { id: 'app-complexe', label: 'Application Complexe', price: '3M - 8M FCFA' }
+        { id: 'app-complexe', label: 'Application Complexe', price: '3M - 8M FCFA' },
+        { id: 'discuter', label: '🤔 Pas sûr, je veux en discuter', price: 'Sur devis' }
       ]
     },
     'logiciel-web': {
       label: '💻 Logiciel Web / PWA',
       subOptions: [
-        { id: 'pwa-simple', label: 'PWA Simple', price: '1M - 2M FCFA' },
-        { id: 'pwa-moyen', label: 'PWA Moyenne', price: '2M - 5M FCFA' },
-        { id: 'pwa-complexe', label: 'PWA Complexe / ERP', price: '5M - 15M FCFA' }
+        { id: 'pwa-simple', label: 'PWA Simple', price: '200k - 800k FCFA' },
+        { id: 'pwa-moyen', label: 'PWA Moyenne', price: '350k - 1M FCFA' },
+        { id: 'pwa-complexe', label: 'PWA Complexe / ERP', price: '500K - 1M FCFA' },
+        { id: 'discuter', label: '🤔 Pas sûr, je veux en discuter', price: 'Sur devis' }
       ]
     },
     'autre': {
       label: '💡 Autre projet',
       subOptions: [
-        { id: 'formation-ia', label: 'Formation en IA', price: '200k - 1M FCFA' },
+        { id: 'formation-ia', label: 'Formation en IA', price: '100k - 500K FCFA' },
         { id: 'consulting', label: 'Consulting Technique', price: '100k - 500k FCFA' },
-        { id: 'maintenance', label: 'Maintenance / Support', price: '150k - 600k FCFA' }
+        { id: 'maintenance', label: 'Maintenance / Support', price: '50k - 200k FCFA' },
+        { id: 'discuter', label: '🤔 Pas sûr, je veux en discuter', price: 'Sur devis' }
       ]
     }
   };
@@ -374,7 +379,6 @@ function initChatbot() {
     messages.innerHTML = '';
     options.style.display = 'flex';
     subOptions.style.display = 'none';
-    budget.style.display = 'none';
     whatsapp.style.display = 'none';
     step = 'project';
     selectedProject = '';
@@ -392,7 +396,7 @@ function initChatbot() {
     data.subOptions.forEach(sub => {
       const btn = document.createElement('button');
       btn.className = 'chat-option';
-      btn.textContent = `${sub.label} — ${sub.price}`;
+      btn.innerHTML = `${sub.label} — <span style="color:var(--gold);font-weight:600;">${sub.price}</span>`;
       btn.dataset.subId = sub.id;
       btn.addEventListener('click', () => handleSubOption(sub.id));
       subContainer.appendChild(btn);
@@ -417,49 +421,28 @@ function initChatbot() {
     addMessage(`Vous avez choisi : ${sub.label} (${sub.price})`, 'user');
     
     setTimeout(() => {
-      addMessage('Excellent choix ! 🤝<br>Quel est votre budget approximatif pour ce projet ?');
-      subOptions.style.display = 'none';
-      budget.style.display = 'flex';
-      step = 'budget';
-    }, 600);
-  }
-
-  function handleBudget(budgetOption) {
-    const budgetNames = {
-      'petit': '💵 Petit (moins de 500k FCFA)',
-      'moyen': '💰 Moyen (500k - 1.5M FCFA)',
-      'grand': '💎 Grand (1.5M - 5M FCFA)',
-      'entreprise': '🏢 Entreprise (5M+ FCFA)',
-      'pas-sur': '🤔 Pas sûr/e'
-    };
-    addMessage(`Budget : ${budgetNames[budgetOption] || budgetOption}`, 'user');
-    
-    setTimeout(() => {
-      let pricingInfo = '';
-      if (budgetOption === 'petit') {
-        pricingInfo = 'Pour ce budget, nous pouvons réaliser un projet simple mais efficace.';
-      } else if (budgetOption === 'moyen') {
-        pricingInfo = 'Excellent ! Avec ce budget, nous pouvons développer un projet solide avec des fonctionnalités avancées.';
-      } else if (budgetOption === 'grand') {
-        pricingInfo = 'Parfait ! Ce budget permet de créer un projet complet avec des technologies de pointe.';
-      } else if (budgetOption === 'entreprise') {
-        pricingInfo = 'Super ! Nous pouvons développer une solution d\'entreprise robuste et scalable.';
+      // Message personnalisé selon le choix
+      let msg = '';
+      if (subId === 'discuter') {
+        msg = 'Pas de souci ! Je comprends que vous ayez besoin de plus d\'informations. 🧐<br><br>Contactez-moi directement sur WhatsApp, nous pourrons discuter de votre projet en détail.';
       } else {
-        pricingInfo = 'Pas de souci, nous pouvons discuter des options qui correspondent à vos besoins.';
+        msg = 'Excellent choix ! 🎯<br><br>Contactez-moi directement sur WhatsApp pour discuter de votre projet.';
       }
-      
-      const projectLabel = projectData[selectedProject]?.label || 'votre projet';
-      const subLabel = projectData[selectedProject]?.subOptions.find(s => s.id === selectedSubOption)?.label || '';
-      
-      addMessage(`${pricingInfo}<br><br>Contactez-moi directement sur WhatsApp pour finaliser votre projet.`);
-      budget.style.display = 'none';
+      addMessage(msg);
+      subOptions.style.display = 'none';
       whatsapp.style.display = 'flex';
       step = 'whatsapp';
       
-      // Update WhatsApp link
+    
       const waLink = document.querySelector('#chatbotWhatsapp .btn');
       if (waLink) {
-        const message = `Bonjour Duchel, je suis intéressé par ${projectLabel} (${subLabel}) avec un budget ${budgetNames[budgetOption] || budgetOption}. Pouvez-vous me contacter ?`;
+        const projectLabel = projectData[selectedProject]?.label || 'votre projet';
+        const subLabel = sub.label;
+        const price = sub.price;
+        let message = `Bonjour Duchel, je suis intéressé par ${projectLabel} (${subLabel}) - ${price}. Pouvez-vous me contacter ?`;
+        if (subId === 'discuter') {
+          message = `Bonjour Duchel, je souhaite discuter de ${projectLabel} car je ne suis pas encore sûr de ce dont j'ai besoin. Pouvez-vous me conseiller ?`;
+        }
         waLink.href = `https://wa.me/237659827131?text=${encodeURIComponent(message)}`;
       }
     }, 600);
@@ -491,21 +474,12 @@ function initChatbot() {
     subOptions.style.display = 'none';
     options.style.display = 'flex';
     step = 'project';
-    // Remove the last two messages (user choice and sub options message)
+    // Remove the last two messages
     const msgs = messages.querySelectorAll('.message');
     if (msgs.length >= 2) {
       msgs[msgs.length - 1].remove();
       msgs[msgs.length - 1].remove();
     }
-  });
-
-  // Budget options (Niveau 3)
-  document.querySelectorAll('.budget-option').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (step === 'budget') {
-        handleBudget(btn.dataset.budget);
-      }
-    });
   });
 
   // Reset
