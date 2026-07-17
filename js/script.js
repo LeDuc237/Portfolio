@@ -13,6 +13,11 @@ const translations = {
     "hero.cta2": "Me contacter",
     "hero.tagname": "Duchel Decarte",
     "hero.tagrole": "Développeur Logiciel",
+    "hero.badge": "Disponible",
+    "hero.message1": "Transformez votre idée en réalité digitale",
+    "hero.catchphrase": "Digitalisez votre business, digitalisez votre vie",
+    "hero.catchphraseSub": "Des solutions sur mesure pour le Cameroun et l'Afrique",
+    "hero.catchphraseCta": "Commencer mon projet →",
 
     "about.eyebrow": "À propos",
     "about.title": "Je construis des produits, pas seulement des pages.",
@@ -44,7 +49,7 @@ const translations = {
     "projects.progress": "En développement",
     "projects.visit": "Voir le site ↗",
     "projects.geocasa": "PWA offline-first pour la gestion cadastrale et immobilière : dossiers, phases, paiements — accessible même sans connexion internet stable.",
-    "projects.foromamed": "Plateforme e-commerce de matériel orthopédique à Yaoundé, avec tarification en FCFA et recherche produit intelligente (tokenisation + Fuse.js).",
+    "projects.foromamed": "Plateforme e-commerce de matériel orthopédique à Yaoundé, avec tarification en FCFA et recherche produit intelligente.",
     "projects.yourchemlab": "Application web pour un laboratoire / fournisseur de produits chimiques — catalogue, présentation de service et prise de contact client.",
     "projects.ingenuim": "Site vitrine pour une entreprise d'ingénierie électrique en France — présentation des services et des réalisations.",
     "projects.holding": "Logiciel complet de gestion de structure — RH, finances, projets, reporting, CRM. Un de mes plus grands projets en production.",
@@ -94,6 +99,11 @@ const translations = {
     "hero.cta2": "Get in touch",
     "hero.tagname": "Duchel Decarte",
     "hero.tagrole": "Software Engineer",
+    "hero.badge": "Available",
+    "hero.message1": "Turn your idea into digital reality",
+    "hero.catchphrase": "Digitize your business, digitize your life",
+    "hero.catchphraseSub": "Tailored solutions for Cameroon and Africa",
+    "hero.catchphraseCta": "Start my project →",
 
     "about.eyebrow": "About",
     "about.title": "I build products, not just pages.",
@@ -125,7 +135,7 @@ const translations = {
     "projects.progress": "In progress",
     "projects.visit": "Visit site ↗",
     "projects.geocasa": "Offline-first PWA for cadastral and real-estate management: files, phases, payments — accessible even without a stable internet connection.",
-    "projects.foromamed": "E-commerce platform for orthopedic equipment in Yaoundé, with FCFA pricing and smart product search (tokenized scoring + Fuse.js).",
+    "projects.foromamed": "E-commerce platform for orthopedic equipment in Yaoundé, with FCFA pricing and smart product search.",
     "projects.yourchemlab": "Web application for a chemical products lab / supplier — catalog, service presentation and client contact.",
     "projects.ingenuim": "Showcase site for an electrical engineering company in France — presenting services and past work.",
     "projects.holding": "Complete structure management software — HR, finances, projects, reporting, CRM. One of my biggest projects in production.",
@@ -170,7 +180,7 @@ const terminalLines = {
     { t: 'indent' }, { t: 'prop', v: 'role' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Développeur Logiciel'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'location' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Yaoundé, Cameroun'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'experience' }, { t: 'punc', v: ': ' }, { t: 'num', v: '5' }, { t: 'punc', v: ', // années' }, { t: 'nl' },
-      { t: 'indent' }, { t: 'prop', v: 'telephone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 659 827 131' }, { t: 'punc', v: ',' }, { t: 'nl' },
+    { t: 'indent' }, { t: 'prop', v: 'telephone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 659 827 131' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'stack' }, { t: 'punc', v: ': [' }, { t: 'str', v: "'React'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'TypeScript'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Next.js'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Vite'" }, { t: 'punc', v: '],' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'buildsOffline' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'usesAI' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'nl' },
@@ -193,7 +203,6 @@ const terminalLines = {
 
 let currentLang = 'fr';
 
-/* ----- TRANSLATIONS ----- */
 function applyTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -203,7 +212,7 @@ function applyTranslations(lang) {
     }
   });
   document.documentElement.lang = lang;
-  document.querySelectorAll('.lang-switch button').forEach(btn => {
+  document.querySelectorAll('.lang-switch button, .lang-switch-header button').forEach(btn => {
     btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
 }
@@ -215,12 +224,11 @@ function setLang(lang) {
 }
 
 function initLangSwitch() {
-  document.querySelectorAll('.lang-switch button').forEach(btn => {
+  document.querySelectorAll('.lang-switch button, .lang-switch-header button').forEach(btn => {
     btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
   });
 }
 
-/* ----- TYPED TERMINAL ----- */
 function typeTerminal(lang) {
   const el = document.getElementById('typedTerminal');
   if (!el) return;
@@ -249,7 +257,6 @@ function typeTerminal(lang) {
   step();
 }
 
-/* ----- SCROLL SPY ----- */
 function initScrollSpy() {
   const sections = ['hero', 'about', 'skills', 'projects', 'journey', 'contact']
     .map(id => document.getElementById(id))
@@ -270,7 +277,6 @@ function initScrollSpy() {
   sections.forEach(s => observer.observe(s));
 }
 
-/* ----- MOBILE MENU ----- */
 function initMobileMenu() {
   const toggle = document.getElementById('menuToggle');
   const menu = document.getElementById('mobileMenu');
@@ -279,7 +285,6 @@ function initMobileMenu() {
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 }
 
-/* ----- SCROLL REVEAL ----- */
 function initReveal() {
   const items = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -293,7 +298,6 @@ function initReveal() {
   items.forEach(el => observer.observe(el));
 }
 
-/* ----- CONTACT FORM ----- */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -309,7 +313,6 @@ function initContactForm() {
   });
 }
 
-/* ----- CHAT BOT ----- */
 function initChatbot() {
   const container = document.getElementById('chatbotContainer');
   const toggle = document.getElementById('chatbotToggle');
@@ -324,10 +327,8 @@ function initChatbot() {
   const backBtn = document.getElementById('chatbotBack');
 
   let selectedProject = '';
-  let selectedSubOption = '';
   let step = 'project';
 
-  // Structure des projets avec sous-options et prix
   const projectData = {
     'site-web': {
       label: '🌐 Site Web',
@@ -382,17 +383,16 @@ function initChatbot() {
     whatsapp.style.display = 'none';
     step = 'project';
     selectedProject = '';
-    selectedSubOption = '';
     addMessage('Bonjour ! 👋<br>Je suis votre assistant. Quel type de projet souhaitez-vous réaliser ?');
   }
 
   function showSubOptions(projectId) {
     const data = projectData[projectId];
     if (!data) return;
-    
+
     selectedProject = projectId;
     subContainer.innerHTML = '';
-    
+
     data.subOptions.forEach(sub => {
       const btn = document.createElement('button');
       btn.className = 'chat-option';
@@ -405,7 +405,7 @@ function initChatbot() {
     options.style.display = 'none';
     subOptions.style.display = 'flex';
     step = 'suboption';
-    
+
     addMessage(`Vous avez choisi : ${data.label}`, 'user');
     setTimeout(() => {
       addMessage('Parfait ! Voici les options disponibles avec leurs prix :<br>Choisissez celle qui correspond le mieux à votre besoin.');
@@ -416,12 +416,10 @@ function initChatbot() {
     const projectDataRef = projectData[selectedProject];
     const sub = projectDataRef.subOptions.find(s => s.id === subId);
     if (!sub) return;
-    
-    selectedSubOption = subId;
+
     addMessage(`Vous avez choisi : ${sub.label} (${sub.price})`, 'user');
-    
+
     setTimeout(() => {
-      // Message personnalisé selon le choix
       let msg = '';
       if (subId === 'discuter') {
         msg = 'Pas de souci ! Je comprends que vous ayez besoin de plus d\'informations. 🧐<br><br>Contactez-moi directement sur WhatsApp, nous pourrons discuter de votre projet en détail.';
@@ -432,8 +430,7 @@ function initChatbot() {
       subOptions.style.display = 'none';
       whatsapp.style.display = 'flex';
       step = 'whatsapp';
-      
-    
+
       const waLink = document.querySelector('#chatbotWhatsapp .btn');
       if (waLink) {
         const projectLabel = projectData[selectedProject]?.label || 'votre projet';
@@ -448,7 +445,6 @@ function initChatbot() {
     }, 600);
   }
 
-  // Toggle chat window
   toggle.addEventListener('click', () => {
     window.classList.toggle('open');
     if (window.classList.contains('open') && messages.children.length === 0) {
@@ -460,7 +456,6 @@ function initChatbot() {
     window.classList.remove('open');
   });
 
-  // Project options (Niveau 1)
   document.querySelectorAll('.chat-option[data-project]').forEach(btn => {
     btn.addEventListener('click', () => {
       if (step === 'project') {
@@ -469,12 +464,10 @@ function initChatbot() {
     });
   });
 
-  // Back button
   backBtn.addEventListener('click', () => {
     subOptions.style.display = 'none';
     options.style.display = 'flex';
     step = 'project';
-    // Remove the last two messages
     const msgs = messages.querySelectorAll('.message');
     if (msgs.length >= 2) {
       msgs[msgs.length - 1].remove();
@@ -482,20 +475,17 @@ function initChatbot() {
     }
   });
 
-  // Reset
   resetBtn.addEventListener('click', resetChat);
 
-  // Close on outside click
   document.addEventListener('click', (e) => {
-    if (window.classList.contains('open') && 
-        !container.contains(e.target) && 
-        e.target !== toggle) {
+    if (window.classList.contains('open') &&
+      !container.contains(e.target) &&
+      e.target !== toggle) {
       window.classList.remove('open');
     }
   });
 }
 
-/* ----- INIT ----- */
 document.addEventListener('DOMContentLoaded', () => {
   applyTranslations(currentLang);
   typeTerminal(currentLang);

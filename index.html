@@ -1,635 +1,703 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Duchel Decarte — Développeur Logiciel</title>
-  <meta name="description" content="Portfolio de Ateuf Ngeufo Duchel Decarte, développeur logiciel — React, TypeScript, Next.js, PWA offline-first. Basé à Yaoundé, Cameroun.">
-  <meta name="keywords" content="développeur logiciel, React, TypeScript, Next.js, PWA, Yaoundé, Cameroun, Duchel Decarte, portfolio, web developer">
+  <meta name="description"
+    content="Portfolio de Ateuf Ngeufo Duchel Decarte, développeur logiciel — React, TypeScript, Next.js, PWA offline-first. Basé à Yaoundé, Cameroun.">
+  <meta name="keywords"
+    content="développeur logiciel, React, TypeScript, Next.js, PWA, Yaoundé, Cameroun, Duchel Decarte, portfolio, web developer">
   <meta name="author" content="Ateuf Ngeufo Duchel Decarte">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230e1316'/%3E%3Ccircle cx='50' cy='50' r='42' fill='none' stroke='%23e3a23c' stroke-width='4'/%3E%3Ctext x='50' y='62' font-family='monospace' font-size='40' fill='%23e3a23c' text-anchor='middle' font-weight='bold'%3ED%3C/text%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
+  <!-- ===== TAB BAR ===== -->
+  <header class="tabbar" role="navigation" aria-label="Navigation principale">
+    <div class="dots">
+      <span></span><span></span><span></span>
+    </div>
+    <nav class="tabs" id="tabs">
+      <a href="#hero" class="tab active" data-i18n="tab.home">
+        <span class="dot"></span>Home.tsx
+      </a>
+      <a href="#about" class="tab" data-i18n="tab.about">
+        <span class="dot"></span>About.md
+      </a>
+      <a href="#skills" class="tab" data-i18n="tab.skills">
+        <span class="dot"></span>Skills.json
+      </a>
+      <a href="#projects" class="tab" data-i18n="tab.projects">
+        <span class="dot"></span>Projects/
+      </a>
+      <a href="#journey" class="tab" data-i18n="tab.journey">
+        <span class="dot"></span>log.git
+      </a>
+      <a href="#contact" class="tab" data-i18n="tab.contact">
+        <span class="dot"></span>Contact.env
+      </a>
+    </nav>
+    <div class="tabbar-cta">
+      <div class="lang-switch-header" id="langSwitchHeader">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-primary" data-i18n="tab.cta">
+        Me contacter
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </header>
 
-<header class="tabbar" role="navigation" aria-label="Navigation principale">
-  <div class="dots">
-    <span></span><span></span><span></span>
-  </div>
-  <nav class="tabs" id="tabs">
-    <a href="#hero" class="tab active" data-i18n="tab.home">
-      <span class="dot"></span>Home.tsx
-    </a>
-    <a href="#about" class="tab" data-i18n="tab.about">
-      <span class="dot"></span>About.md
-    </a>
-    <a href="#skills" class="tab" data-i18n="tab.skills">
-      <span class="dot"></span>Skills.json
-    </a>
-    <a href="#projects" class="tab" data-i18n="tab.projects">
-      <span class="dot"></span>Projects/
-    </a>
-    <a href="#journey" class="tab" data-i18n="tab.journey">
-      <span class="dot"></span>log.git
-    </a>
-    <a href="#contact" class="tab" data-i18n="tab.contact">
-      <span class="dot"></span>Contact.env
-    </a>
+  <!-- ===== MOBILE MENU ===== -->
+  <nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
+    <a href="#hero" class="tab active" data-i18n="tab.home">Home.tsx</a>
+    <a href="#about" class="tab" data-i18n="tab.about">About.md</a>
+    <a href="#skills" class="tab" data-i18n="tab.skills">Skills.json</a>
+    <a href="#projects" class="tab" data-i18n="tab.projects">Projects/</a>
+    <a href="#journey" class="tab" data-i18n="tab.journey">log.git</a>
+    <a href="#contact" class="tab" data-i18n="tab.contact">Contact.env</a>
   </nav>
-  <div class="tabbar-cta">
-   
-    <div class="lang-switch-header" id="langSwitchHeader">
-      <button data-lang="fr" class="active">FR</button>
-      <button data-lang="en">EN</button>
-    </div>
 
-    <a href="#contact" class="btn btn-primary" data-i18n="tab.cta">
-      Me contacter
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-    </button>
-  </div>
-</header>
+  <main>
 
-<!-- ===== MOBILE MENU ===== -->
-<nav class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobile">
-  <a href="#hero" class="tab active" data-i18n="tab.home">Home.tsx</a>
-  <a href="#about" class="tab" data-i18n="tab.about">About.md</a>
-  <a href="#skills" class="tab" data-i18n="tab.skills">Skills.json</a>
-  <a href="#projects" class="tab" data-i18n="tab.projects">Projects/</a>
-  <a href="#journey" class="tab" data-i18n="tab.journey">log.git</a>
-  <a href="#contact" class="tab" data-i18n="tab.contact">Contact.env</a>
- 
-</nav>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Colonne gauche -->
+          <div class="hero-left">
+            <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio — Yaoundé, Cameroun</p>
 
-<main>
+            <div class="terminal reveal">
+              <div class="terminal-head">
+                <span></span><span></span><span></span>
+                <b>~/duchel — zsh</b>
+              </div>
+              <div class="terminal-body" id="typedTerminal"></div>
+            </div>
 
-  <section class="hero" id="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow" data-i18n="hero.eyebrow">Portfolio — Yaoundé, Cameroun</p>
-        <div class="terminal reveal">
-          <div class="terminal-head">
-            <span></span><span></span><span></span>
-            <b>~/duchel — zsh</b>
+            <div class="hero-contact-bar">
+              <a href="tel:+237659827131" class="hero-contact-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                +237 659 827 131
+              </a>
+              <a href="https://wa.me/237659827131" target="_blank" class="hero-contact-item whatsapp">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                </svg>
+                WhatsApp
+              </a>
+            </div>
+
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir mes projets</a>
+              <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Me contacter</a>
+              <a href="https://github.com/leduc" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/duchel-decarte" target="_blank" rel="noopener"
+                class="btn btn-ghost">LinkedIn ↗</a>
+            </div>
           </div>
-          <div class="terminal-body" id="typedTerminal"></div>
-        </div>
-    
-        <div class="hero-contact-bar">
-          <a href="tel:+237659827131" class="hero-contact-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-            </svg>
-            +237 659 827 131
-          </a>
-          <a href="https://wa.me/237659827131" target="_blank" class="hero-contact-item whatsapp">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            WhatsApp
-          </a>
-        </div>
-        <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary" data-i18n="hero.cta1">Voir mes projets</a>
-          <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta2">Me contacter</a>
-          <a href="https://github.com/leduc" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/duchel-decarte" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
-        </div>
-      </div>
-      <!-- Photo cachée sur mobile -->
-      <div class="hero-photo-wrap hide-mobile">
-        <div class="hero-photo-frame reveal">
-          <img src="assets/profile-placeholder.png" alt="Ateuf Ngeufo Duchel Decarte" loading="lazy">
-          <div class="hero-photo-tag">
-            <b data-i18n="hero.tagname">Duchel Decarte</b><br>
-            <span data-i18n="hero.tagrole">Développeur Logiciel</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section" id="about">
-    <div class="container">
-      <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
-      <h2 class="section-title" data-i18n="about.title">Je construis des produits, pas seulement des pages.</h2>
-      <p class="section-sub" data-i18n="about.sub">Du prototype au déploiement, en passant par l'architecture offline.</p>
+          <!-- Colonne droite : Photo + Message side by side sur mobile -->
+          <div class="hero-right">
+            <!-- Photo -->
+            <div class="hero-photo-frame reveal">
+              <img src="assets/profile-placeholder.png" alt="Ateuf Ngeufo Duchel Decarte" loading="lazy">
 
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p data-i18n="about.p1">Je m'appelle <strong>Ateuf Ngeufo Duchel Decarte</strong>, développeur logiciel basé à Yaoundé, au Cameroun. Je code depuis <strong>5 ans</strong>, avec une spécialisation dans les applications web modernes : <strong>React, TypeScript, Next.js</strong> et <strong>Vite</strong>, connectées à des backends comme <strong>Supabase</strong> et <strong>PHP</strong>.</p>
-          <p data-i18n="about.p2">J'aime construire des <strong>PWA offline-first</strong> — des applications qui continuent de fonctionner même sans connexion stable, une contrainte très concrète dans le contexte camerounais. C'est le cas de <strong>GeoCasa</strong>, mon application de gestion cadastrale.</p>
-          <p data-i18n="about.p3">Je travaille aussi avec des outils d'infrastructure — <strong>Docker, VPS, Railway, Cloudinary, Netlify</strong> — et j'intègre l'IA directement dans mon flux de développement pour livrer plus vite sans sacrifier la qualité.</p>
-        </div>
-        <div class="reveal">
-          <div class="stat-grid">
-            <div class="stat">
-              <div class="n">5+</div>
-              <div class="l" data-i18n="about.stat1">Années de code</div>
+              <!-- Badge disponible -->
+              <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                <span data-i18n="hero.badge">Disponible</span>
+              </div>
+
+              <!-- Tag info -->
+              <div class="hero-photo-tag">
+                <b data-i18n="hero.tagname">Duchel Decarte</b><br>
+                <span data-i18n="hero.tagrole">Développeur Logiciel</span>
+              </div>
             </div>
-            <div class="stat">
-              <div class="n">23+</div>
-              <div class="l" data-i18n="about.stat2">Projets en production</div>
-            </div>
-            <div class="stat">
-              <div class="n">5</div>
-              <div class="l" data-i18n="about.stat3">PWA offline-first</div>
-            </div>
-            <div class="stat">
-              <div class="n">FR/EN</div>
-              <div class="l" data-i18n="about.stat4">Bilingue</div>
+
+            <!-- Messages d'accroche (side by side avec la photo sur mobile) -->
+            <div class="hero-messages reveal">
+              <div class="hero-message-item">
+                <span class="message-icon">.</span>
+                <div>
+                  <strong data-i18n="hero.message1">Transformez votre idée en réalité digitale</strong>
+                </div>
+              </div>
+              <div class="hero-message-item hero-message-main">
+                <span class="message-icon">.</span>
+                <div>
+                  <strong data-i18n="hero.catchphrase">Digitalisez votre business, digitalisez votre vie</strong>
+                </div>
+              </div>
+              <div class="hero-message-cta">
+                <a href="#projects" class="btn btn-primary" data-i18n="hero.catchphraseCta"> Projets →</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <section class="section" id="skills">
-    <div class="container">
-      <p class="eyebrow" data-i18n="skills.eyebrow">Compétences</p>
-      <h2 class="section-title" data-i18n="skills.title">La stack au quotidien</h2>
-      <p class="section-sub" data-i18n="skills.sub">Les outils que j'utilise pour passer d'une idée à une application déployée.</p>
-
-      <div class="skills-file reveal">
-        <div class="skills-file-head">skills.json</div>
-        <div class="skills-body">
-          <div class="skill-group">
-            <div class="skill-group-label" data-i18n="skills.g1">"frontend"</div>
-            <div class="skill-chips">
-              <span class="chip">React</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">Next.js</span>
-              <span class="chip">Vite</span>
-              <span class="chip">Tailwind CSS</span>
-              <span class="chip">JavaScript (ES6+)</span>
-              <span class="chip">HTML5 / CSS3</span>
-            </div>
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow" data-i18n="about.eyebrow">À propos</p>
+        <h2 class="section-title" data-i18n="about.title">Je construis des produits, pas seulement des pages.</h2>
+        <p class="section-sub" data-i18n="about.sub">Du prototype au déploiement, en passant par l'architecture offline.
+        </p>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-i18n="about.p1">Je m'appelle <strong>Ateuf Ngeufo Duchel Decarte</strong>, développeur logiciel basé
+              à Yaoundé, au Cameroun. Je code depuis <strong>5 ans</strong>, avec une spécialisation dans les
+              applications web modernes : <strong>React, TypeScript, Next.js</strong> et <strong>Vite</strong>,
+              connectées à des backends comme <strong>Supabase</strong> et <strong>PHP</strong>.</p>
+            <p data-i18n="about.p2">J'aime construire des <strong>PWA offline-first</strong> — des applications qui
+              continuent de fonctionner même sans connexion stable, une contrainte très concrète dans le contexte
+              camerounais. C'est le cas de <strong>GeoCasa</strong>, mon application de gestion cadastrale.</p>
+            <p data-i18n="about.p3">Je travaille aussi avec des outils d'infrastructure — <strong>Docker, VPS, Railway,
+                Cloudinary, Netlify</strong> — et j'intègre l'IA directement dans mon flux de développement pour livrer
+              plus vite sans sacrifier la qualité.</p>
           </div>
-          <div class="skill-group">
-            <div class="skill-group-label" data-i18n="skills.g2">"backend_et_donnees"</div>
-            <div class="skill-chips">
-              <span class="chip">Supabase</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">PHP</span>
-              <span class="chip">Python</span>
-              <span class="chip">REST APIs</span>
-              <span class="chip">Stripe</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-label" data-i18n="skills.g3">"infra_et_deploiement"</div>
-            <div class="skill-chips">
-              <span class="chip">Docker</span>
-              <span class="chip">VPS</span>
-              <span class="chip">Railway</span>
-              <span class="chip">Cloudinary</span>
-              <span class="chip">Netlify</span>
-              <span class="chip">Git / GitHub</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <div class="skill-group-label" data-i18n="skills.g4">"ia_et_productivite"</div>
-            <div class="skill-chips">
-              <span class="chip" data-i18n="skills.chip.ai1">Développement assisté par IA</span>
-              <span class="chip" data-i18n="skills.chip.ai2">Prototypage rapide</span>
-              <span class="chip">PWA / Offline-first</span>
-              <span class="chip">IndexedDB</span>
+          <div class="reveal">
+            <div class="stat-grid">
+              <div class="stat">
+                <div class="n">5+</div>
+                <div class="l" data-i18n="about.stat1">Années de code</div>
+              </div>
+              <div class="stat">
+                <div class="n">23+</div>
+                <div class="l" data-i18n="about.stat2">Projets en production</div>
+              </div>
+              <div class="stat">
+                <div class="n">5</div>
+                <div class="l" data-i18n="about.stat3">PWA offline-first</div>
+              </div>
+              <div class="stat">
+                <div class="n">FR/EN</div>
+                <div class="l" data-i18n="about.stat4">Bilingue</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-  <section class="section" id="projects">
-    <div class="container">
-      <p class="eyebrow" data-i18n="projects.eyebrow">Projets</p>
-      <h2 class="section-title" data-i18n="projects.title">Ce sur quoi je travaille</h2>
-      <p class="section-sub" data-i18n="projects.sub">Des applications réelles, utilisées par de vrais clients au Cameroun et en France.</p>
-
-      <div class="projects-grid">
-
-     
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/foromamed.png" alt="FOROMAMED - Matériel Orthopédique" loading="lazy">
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="eyebrow" data-i18n="skills.eyebrow">Compétences</p>
+        <h2 class="section-title" data-i18n="skills.title">La stack au quotidien</h2>
+        <p class="section-sub" data-i18n="skills.sub">Les outils que j'utilise pour passer d'une idée à une application
+          déployée.</p>
+        <div class="skills-file reveal">
+          <div class="skills-file-head">skills.json</div>
+          <div class="skills-body">
+            <div class="skill-group">
+              <div class="skill-group-label" data-i18n="skills.g1">"frontend"</div>
+              <div class="skill-chips">
+                <span class="chip">React</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">Next.js</span>
+                <span class="chip">Vite</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">JavaScript (ES6+)</span>
+                <span class="chip">HTML5 / CSS3</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-label" data-i18n="skills.g2">"backend_et_donnees"</div>
+              <div class="skill-chips">
+                <span class="chip">Supabase</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">PHP</span>
+                <span class="chip">Python</span>
+                <span class="chip">REST APIs</span>
+                <span class="chip">Stripe</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-label" data-i18n="skills.g3">"infra_et_deploiement"</div>
+              <div class="skill-chips">
+                <span class="chip">Docker</span>
+                <span class="chip">VPS</span>
+                <span class="chip">Railway</span>
+                <span class="chip">Cloudinary</span>
+                <span class="chip">Netlify</span>
+                <span class="chip">Git / GitHub</span>
+              </div>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-label" data-i18n="skills.g4">"ia_et_productivite"</div>
+              <div class="skill-chips">
+                <span class="chip" data-i18n="skills.chip.ai1">Développement assisté par IA</span>
+                <span class="chip" data-i18n="skills.chip.ai2">Prototypage rapide</span>
+                <span class="chip">PWA / Offline-first</span>
+                <span class="chip">IndexedDB</span>
+              </div>
+            </div>
           </div>
-          <div class="repo-top">
-            <span class="repo-name">FOROMAMED</span>
-            <span class="repo-status live" data-i18n="projects.live">En ligne</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.foromamed">Plateforme e-commerce de matériel orthopédique à Yaoundé, avec tarification en FCFA et recherche produit intelligente (tokenisation + Fuse.js).</p>
-          <div class="lang-bar">
-            <span style="width:60%;background:#7fb8e0"></span>
-            <span style="width:20%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--brick)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>TypeScript</span><span>Supabase</span><span>Fuse.js</span>
-          </div>
-          <div class="repo-foot">
-            <a href="https://foromamed.com" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
-          </div>
-        </article>
-
-       
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/yourchemlab.png" alt="YourChemLab - Laboratoire Chimique" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">YourChemLab</span>
-            <span class="repo-status live" data-i18n="projects.live">En ligne</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.yourchemlab">Application web pour un laboratoire / fournisseur de produits chimiques — catalogue, présentation de service et prise de contact client.</p>
-          <div class="lang-bar">
-            <span style="width:50%;background:#7fb8e0"></span>
-            <span style="width:30%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>TypeScript</span><span>Vite</span>
-          </div>
-          <div class="repo-foot">
-            <a href="https://yourchemlab.com" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
-          </div>
-        </article>
-
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/ingeniumelect.png" alt="Ingénuim Elect - Ingénierie Électrique" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">Ingénuim Elect</span>
-            <span class="repo-status live" data-i18n="projects.live">En ligne</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.ingenuim">Site vitrine pour une entreprise d'ingénierie électrique en France — présentation des services et des réalisations.</p>
-          <div class="lang-bar">
-            <span style="width:50%;background:#7fb8e0"></span>
-            <span style="width:30%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--brick)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>Tailwind CSS</span>
-          </div>
-          <div class="repo-foot">
-            <a href="https://ingenuimelect.fr" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
-          </div>
-        </article>
-
-     
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/blendair.png" alt="Blend Hair - Cheveux Afro Kinky" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">Blend Hair</span>
-            <span class="repo-status live" data-i18n="projects.live">En ligne</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.blendhair">Plateforme e-commerce de cheveux afro kinky — 100% cheveux humains, parfaits pour le tressage et les dreadlocks. Paiement par carte bancaire via Stripe.</p>
-          <div class="lang-bar">
-            <span style="width:55%;background:#7fb8e0"></span>
-            <span style="width:25%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>TypeScript</span><span>Supabase</span><span>Stripe</span>
-          </div>
-          <div class="repo-foot">
-            <a href="#" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
-          </div>
-        </article>
-
-
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/cliniquemaindouce.png" alt="Clinique Mains Douces - Centre Médical" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">Clinique Mains Douces</span>
-            <span class="repo-status live" data-i18n="projects.live">En ligne</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.clinique">Centre de soins médicaux à Tradex Simbock, Yaoundé — services médicaux de qualité avec des mains douces et un cœur attentionné.</p>
-          <div class="lang-bar">
-            <span style="width:50%;background:#7fb8e0"></span>
-            <span style="width:30%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--brick)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>Tailwind CSS</span>
-          </div>
-          <div class="repo-foot">
-            <a href="#" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
-          </div>
-        </article>
-
-       
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/54.png" alt="GeoCasa - Gestion Cadastrale" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">GeoCasa</span>
-            <span class="repo-status private" data-i18n="projects.private">Logiciel Privé</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.geocasa">PWA offline-first pour la gestion cadastrale et immobilière : dossiers, phases, paiements — accessible même sans connexion internet stable.</p>
-          <div class="lang-bar">
-            <span style="width:55%;background:#7fb8e0"></span>
-            <span style="width:25%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>IndexedDB</span>
-          </div>
-          <div class="repo-foot">
-            <span class="repo-private-badge">🔒 Logiciel Privé</span>
-          </div>
-        </article>
-
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/SARL.png" alt="Holding - Gestion de Structure" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">Holding</span>
-            <span class="repo-status private" data-i18n="projects.private">Logiciel Privé</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.holding">Logiciel complet de gestion de structure — RH, finances, projets, reporting, CRM. Un de mes plus grands projets en production.</p>
-          <div class="lang-bar">
-            <span style="width:55%;background:#7fb8e0"></span>
-            <span style="width:25%;background:var(--gold)"></span>
-            <span style="width:20%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>IndexedDB</span><span>Supabase</span>
-          </div>
-          <div class="repo-foot">
-            <span class="repo-private-badge">🔒 Logiciel Privé</span>
-          </div>
-        </article>
-
-
-        <article class="repo-card reveal">
-          <div class="repo-image">
-            <img src="assets/M7goat.png" alt="M7 GOAT - Soins Capillaires" loading="lazy">
-          </div>
-          <div class="repo-top">
-            <span class="repo-name">M7 GOAT</span>
-            <span class="repo-status paused" data-i18n="projects.paused">En Suspension</span>
-          </div>
-          <p class="repo-desc" data-i18n="projects.m7goat">Solutions naturelles pour la croissance des cheveux — produits biologiques premium pour des cheveux sains, forts et magnifiques.</p>
-          <div class="lang-bar">
-            <span style="width:40%;background:#7fb8e0"></span>
-            <span style="width:30%;background:var(--gold)"></span>
-            <span style="width:30%;background:var(--green)"></span>
-          </div>
-          <div class="repo-tech">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
-          </div>
-          <div class="repo-foot">
-            <span class="repo-paused-badge">⏸️ En Suspension</span>
-          </div>
-        </article>
-
-        <!-- Voir plus sur GitHub -->
-        <article class="repo-card reveal github-more" style="justify-content:center;align-items:center;text-align:center;min-height:200px;">
-          <div style="font-size:48px;margin-bottom:16px;">🚀</div>
-          <h3 style="font-family:var(--font-display);color:var(--gold);">Plus de projets</h3>
-          <p style="color:var(--text-dim);margin:8px 0 16px;">Retrouvez tous mes projets sur GitHub</p>
-          <a href="https://github.com/leduc" target="_blank" rel="noopener" class="btn btn-primary">
-            Voir mon GitHub ↗
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
- 
-  <section class="section" id="journey">
-    <div class="container">
-      <p class="eyebrow" data-i18n="journey.eyebrow">Parcours</p>
-      <h2 class="section-title" data-i18n="journey.title">git log --author=duchel</h2>
-      <p class="section-sub" data-i18n="journey.sub">Cinq années de code, résumées comme un historique de commits.</p>
-
-      <div class="commit-log">
-        <div class="commit reveal">
-          <div class="commit-meta">
-            <span class="hash">a1f9c2e</span>
-            <span>2021</span>
-          </div>
-          <div class="commit-msg" data-i18n="journey.c1.title">init: premiers pas en programmation</div>
-          <div class="commit-body" data-i18n="journey.c1.body">Découverte du développement web, bases de HTML, CSS et JavaScript.</div>
-        </div>
-        <div class="commit reveal">
-          <div class="commit-meta">
-            <span class="hash">b7d3e81</span>
-            <span>2022 — 2023</span>
-          </div>
-          <div class="commit-msg" data-i18n="journey.c2.title">feat: montée en compétence React &amp; TypeScript</div>
-          <div class="commit-body" data-i18n="journey.c2.body">Passage à des applications plus complexes, adoption de React, TypeScript et des bonnes pratiques de structuration de code.</div>
-        </div>
-        <div class="commit reveal">
-          <div class="commit-meta">
-            <span class="hash">c4a08f5</span>
-            <span>2024</span>
-          </div>
-          <div class="commit-msg" data-i18n="journey.c3.title">feat: premières applications en production</div>
-          <div class="commit-body" data-i18n="journey.c3.body">Lancement de FOROMAMED et YourChemLab, mise en place de Supabase et des premiers déploiements sur Netlify / VPS.</div>
-        </div>
-        <div class="commit reveal">
-          <div class="commit-meta">
-            <span class="hash">d9e21b4</span>
-            <span>2025</span>
-          </div>
-          <div class="commit-msg" data-i18n="journey.c4.title">feat: architecture offline-first avec GeoCasa</div>
-          <div class="commit-body" data-i18n="journey.c4.body">Conception d'une PWA offline-first avec authentification locale via IndexedDB, pour un usage fiable même sans réseau.</div>
-        </div>
-        <div class="commit reveal">
-          <div class="commit-meta">
-            <span class="hash">HEAD</span>
-            <span>2026</span>
-          </div>
-          <div class="commit-msg" data-i18n="journey.c5.title">feat: développement assisté par IA</div>
-          <div class="commit-body" data-i18n="journey.c5.body">Intégration de l'IA dans mon flux de travail quotidien pour accélérer le développement, sans compromis sur la qualité du code.</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
- 
-  <section class="section" id="contact" style="border-bottom:none;">
-    <div class="container">
-      <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-      <h2 class="section-title" data-i18n="contact.title">Travaillons ensemble</h2>
-      <p class="section-sub" data-i18n="contact.sub">Une idée, un projet, une opportunité ? Écrivez-moi.</p>
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow" data-i18n="projects.eyebrow">Projets</p>
+        <h2 class="section-title" data-i18n="projects.title">Ce sur quoi je travaille</h2>
+        <p class="section-sub" data-i18n="projects.sub">Des applications réelles, utilisées par de vrais clients au
+          Cameroun et en France.</p>
+        <div class="projects-grid">
+          <!-- FOROMAMED -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/foromamed.png" alt="FOROMAMED - Matériel Orthopédique" loading="lazy">
+            </div>
+            <div class="repo-top">
+              <span class="repo-name">FOROMAMED</span>
+              <span class="repo-status live" data-i18n="projects.live">En ligne</span>
+            </div>
+            <p class="repo-desc" data-i18n="projects.foromamed">Plateforme e-commerce de matériel orthopédique à
+              Yaoundé, avec tarification en FCFA et recherche produit intelligente.</p>
+            <div class="lang-bar">
+              <span style="width:60%;background:#7fb8e0"></span>
+              <span style="width:20%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--brick)"></span>
+            </div>
+            <div class="repo-tech">
+              <span>React</span><span>TypeScript</span><span>Supabase</span><span>Fuse.js</span>
+            </div>
+            <div class="repo-foot">
+              <a href="https://foromamed.com" target="_blank" rel="noopener" class="repo-link"
+                data-i18n="projects.visit">Voir le site ↗</a>
+            </div>
+          </article>
 
-      <div class="contact-wrap">
-        <div class="env-file reveal">
-          <div class="env-file-head">contact.env</div>
-          <div class="env-body">
-            <div class="env-row">
-              <span class="env-key">NAME=</span>
-              <span class="env-val">Ateuf Ngeufo Duchel Decarte</span>
+          <!-- YourChemLab -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/yourchemlab.png" alt="YourChemLab - Laboratoire Chimique" loading="lazy">
             </div>
-            <div class="env-row">
-              <span class="env-key">ROLE=</span>
-              <span class="env-val" data-i18n="hero.tagrole">Développeur Logiciel</span>
+            <div class="repo-top">
+              <span class="repo-name">YourChemLab</span>
+              <span class="repo-status live" data-i18n="projects.live">En ligne</span>
             </div>
-            <div class="env-row">
-              <span class="env-key">EMAIL=</span>
-              <span class="env-val"><a href="mailto:ducheldecarte@gmail.com">ducheldecarte@gmail.com</a></span>
+            <p class="repo-desc" data-i18n="projects.yourchemlab">Application web pour un laboratoire / fournisseur de
+              produits chimiques — catalogue, présentation de service et prise de contact client.</p>
+            <div class="lang-bar">
+              <span style="width:50%;background:#7fb8e0"></span>
+              <span style="width:30%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--green)"></span>
             </div>
-            <div class="env-row">
-              <span class="env-key">PHONE=</span>
-              <span class="env-val"><a href="tel:+237659827131">+237 659 827 131</a></span>
+            <div class="repo-tech">
+              <span>React</span><span>TypeScript</span><span>Vite</span>
             </div>
-            <div class="env-row">
-              <span class="env-key">PHONE_2=</span>
-              <span class="env-val"><a href="tel:+237651203488">+237 651 203 488</a></span>
+            <div class="repo-foot">
+              <a href="https://yourchemlab.com" target="_blank" rel="noopener" class="repo-link"
+                data-i18n="projects.visit">Voir le site ↗</a>
             </div>
-            <div class="env-row">
-              <span class="env-key">WHATSAPP=</span>
-              <span class="env-val"><a href="https://wa.me/237659827131" target="_blank">wa.me/237659827131</a></span>
+          </article>
+
+          <!-- Ingénuim Elect -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/ingeniumelect.png" alt="Ingénuim Elect - Ingénierie Électrique" loading="lazy">
             </div>
-            <div class="env-row">
-              <span class="env-key">GITHUB=</span>
-              <span class="env-val"><a href="https://github.com/leduc" target="_blank" rel="noopener">github.com/leduc</a></span>
+            <div class="repo-top">
+              <span class="repo-name">Ingénuim Elect</span>
+              <span class="repo-status live" data-i18n="projects.live">En ligne</span>
             </div>
-            <div class="env-row">
-              <span class="env-key">LINKEDIN=</span>
-              <span class="env-val"><a href="https://www.linkedin.com/in/duchel-descartes" target="_blank" rel="noopener">linkedin.com/in/duchel-descartes</a></span>
+            <p class="repo-desc" data-i18n="projects.ingenuim">Site vitrine pour une entreprise d'ingénierie électrique
+              en France — présentation des services et des réalisations.</p>
+            <div class="lang-bar">
+              <span style="width:50%;background:#7fb8e0"></span>
+              <span style="width:30%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--brick)"></span>
             </div>
-            <div class="env-row">
-              <span class="env-key">LOCATION=</span>
-              <span class="env-val">Yaoundé, Cameroun</span>
+            <div class="repo-tech">
+              <span>React</span><span>Tailwind CSS</span>
             </div>
+            <div class="repo-foot">
+              <a href="https://ingenuimelect.fr" target="_blank" rel="noopener" class="repo-link"
+                data-i18n="projects.visit">Voir le site ↗</a>
+            </div>
+          </article>
+
+          <!-- Blend Hair -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/blendair.png" alt="Blend Hair - Cheveux Afro Kinky" loading="lazy">
+            </div>
+            <div class="repo-top">
+              <span class="repo-name">Blend Hair</span>
+              <span class="repo-status live" data-i18n="projects.live">En ligne</span>
+            </div>
+            <p class="repo-desc" data-i18n="projects.blendhair">Plateforme e-commerce de cheveux afro kinky — 100%
+              cheveux humains, parfaits pour le tressage et les dreadlocks. Paiement par carte bancaire via Stripe.</p>
+            <div class="lang-bar">
+              <span style="width:55%;background:#7fb8e0"></span>
+              <span style="width:25%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--green)"></span>
+            </div>
+            <div class="repo-tech">
+              <span>React</span><span>TypeScript</span><span>Supabase</span><span>Stripe</span>
+            </div>
+            <div class="repo-foot">
+              <a href="#" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
+            </div>
+          </article>
+
+          <!-- Clinique Mains Douces -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/cliniquemaindouce.png" alt="Clinique Mains Douces - Centre Médical" loading="lazy">
+            </div>
+            <div class="repo-top">
+              <span class="repo-name">Clinique Mains Douces</span>
+              <span class="repo-status live" data-i18n="projects.live">En ligne</span>
+            </div>
+            <p class="repo-desc" data-i18n="projects.clinique">Centre de soins médicaux à Tradex Simbock, Yaoundé —
+              services médicaux de qualité avec des mains douces et un cœur attentionné.</p>
+            <div class="lang-bar">
+              <span style="width:50%;background:#7fb8e0"></span>
+              <span style="width:30%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--brick)"></span>
+            </div>
+            <div class="repo-tech">
+              <span>React</span><span>Tailwind CSS</span>
+            </div>
+            <div class="repo-foot">
+              <a href="#" target="_blank" rel="noopener" class="repo-link" data-i18n="projects.visit">Voir le site ↗</a>
+            </div>
+          </article>
+
+          <!-- GeoCasa -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/54.png" alt="GeoCasa - Gestion Cadastrale" loading="lazy">
+            </div>
+            <div class="repo-top">
+              <span class="repo-name">GeoCasa</span>
+              <span class="repo-status private" data-i18n="projects.private">Logiciel Privé</span>
+            </div>
+            <p class="repo-desc" data-i18n="projects.geocasa">PWA offline-first pour la gestion cadastrale et
+              immobilière : dossiers, phases, paiements — accessible même sans connexion internet stable.</p>
+            <div class="lang-bar">
+              <span style="width:55%;background:#7fb8e0"></span>
+              <span style="width:25%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--green)"></span>
+            </div>
+            <div class="repo-tech">
+              <span>React</span><span>TypeScript</span><span>Vite</span><span>Supabase</span><span>IndexedDB</span>
+            </div>
+            <div class="repo-foot">
+              <span class="repo-private-badge">🔒 Logiciel Privé</span>
+            </div>
+          </article>
+
+          <!-- Holding -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/SARL.png" alt="Holding - Gestion de Structure" loading="lazy">
+            </div>
+            <div class="repo-top">
+              <span class="repo-name">Holding</span>
+              <span class="repo-status private" data-i18n="projects.private">Logiciel Privé</span>
+            </div>
+            <p class="repo-desc" data-i18n="projects.holding">Logiciel complet de gestion de structure — RH, finances,
+              projets, reporting, CRM. Un de mes plus grands projets en production.</p>
+            <div class="lang-bar">
+              <span style="width:55%;background:#7fb8e0"></span>
+              <span style="width:25%;background:var(--gold)"></span>
+              <span style="width:20%;background:var(--green)"></span>
+            </div>
+            <div class="repo-tech">
+              <span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>IndexedDB</span><span>Supabase</span>
+            </div>
+            <div class="repo-foot">
+              <span class="repo-private-badge">🔒 Logiciel Privé</span>
+            </div>
+          </article>
+
+          <!-- M7 GOAT -->
+          <article class="repo-card reveal">
+            <div class="repo-image">
+              <img src="assets/M7goat.png" alt="M7 GOAT - Soins Capillaires" loading="lazy">
+            </div>
+            <div class="repo-top">
+              <span class="repo-name">M7 GOAT</span>
+              <span class="repo-status paused" data-i18n="projects.paused">En Suspension</span>
+            </div>
+            <p class="repo-desc" data-i18n="projects.m7goat">Solutions naturelles pour la croissance des cheveux —
+              produits biologiques premium pour des cheveux sains, forts et magnifiques.</p>
+            <div class="lang-bar">
+              <span style="width:40%;background:#7fb8e0"></span>
+              <span style="width:30%;background:var(--gold)"></span>
+              <span style="width:30%;background:var(--green)"></span>
+            </div>
+            <div class="repo-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span>
+            </div>
+            <div class="repo-foot">
+              <span class="repo-paused-badge">⏸️ En Suspension</span>
+            </div>
+          </article>
+
+          <!-- GitHub More -->
+          <article class="repo-card reveal github-more">
+            <div style="font-size:48px;margin-bottom:16px;">🚀</div>
+            <h3 style="font-family:var(--font-display);color:var(--gold);">Plus de projets</h3>
+            <p style="color:var(--text-dim);margin:8px 0 16px;">Retrouvez tous mes projets sur GitHub</p>
+            <a href="https://github.com/leduc" target="_blank" rel="noopener" class="btn btn-primary">
+              Voir mon GitHub ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== JOURNEY ===== -->
+    <section class="section" id="journey">
+      <div class="container">
+        <p class="eyebrow" data-i18n="journey.eyebrow">Parcours</p>
+        <h2 class="section-title" data-i18n="journey.title">git log --author=duchel</h2>
+        <p class="section-sub" data-i18n="journey.sub">Cinq années de code, résumées comme un historique de commits.</p>
+        <div class="commit-log">
+          <div class="commit reveal">
+            <div class="commit-meta">
+              <span class="hash">a1f9c2e</span>
+              <span>2021</span>
+            </div>
+            <div class="commit-msg" data-i18n="journey.c1.title">init: premiers pas en programmation</div>
+            <div class="commit-body" data-i18n="journey.c1.body">Découverte du développement web, bases de HTML, CSS et
+              JavaScript.</div>
+          </div>
+          <div class="commit reveal">
+            <div class="commit-meta">
+              <span class="hash">b7d3e81</span>
+              <span>2022 — 2023</span>
+            </div>
+            <div class="commit-msg" data-i18n="journey.c2.title">feat: montée en compétence React &amp; TypeScript</div>
+            <div class="commit-body" data-i18n="journey.c2.body">Passage à des applications plus complexes, adoption de
+              React, TypeScript et des bonnes pratiques de structuration de code.</div>
+          </div>
+          <div class="commit reveal">
+            <div class="commit-meta">
+              <span class="hash">c4a08f5</span>
+              <span>2024</span>
+            </div>
+            <div class="commit-msg" data-i18n="journey.c3.title">feat: premières applications en production</div>
+            <div class="commit-body" data-i18n="journey.c3.body">Lancement de FOROMAMED et YourChemLab, mise en place de
+              Supabase et des premiers déploiements sur Netlify / VPS.</div>
+          </div>
+          <div class="commit reveal">
+            <div class="commit-meta">
+              <span class="hash">d9e21b4</span>
+              <span>2025</span>
+            </div>
+            <div class="commit-msg" data-i18n="journey.c4.title">feat: architecture offline-first avec GeoCasa</div>
+            <div class="commit-body" data-i18n="journey.c4.body">Conception d'une PWA offline-first avec
+              authentification locale via IndexedDB, pour un usage fiable même sans réseau.</div>
+          </div>
+          <div class="commit reveal">
+            <div class="commit-meta">
+              <span class="hash">HEAD</span>
+              <span>2026</span>
+            </div>
+            <div class="commit-msg" data-i18n="journey.c5.title">feat: développement assisté par IA</div>
+            <div class="commit-body" data-i18n="journey.c5.body">Intégration de l'IA dans mon flux de travail quotidien
+              pour accélérer le développement, sans compromis sur la qualité du code.</div>
           </div>
         </div>
-
-        <form class="contact-form reveal" id="contactForm" novalidate>
-          <div class="form-row">
-            <label for="cf-name" data-i18n="contact.name">Nom</label>
-            <input type="text" id="cf-name" name="name" required placeholder="Votre nom">
-          </div>
-          <div class="form-row">
-            <label for="cf-email" data-i18n="contact.email">Email</label>
-            <input type="email" id="cf-email" name="email" required placeholder="votre@email.com">
-          </div>
-          <div class="form-row">
-            <label for="cf-message" data-i18n="contact.message">Message</label>
-            <textarea id="cf-message" name="message" rows="5" required placeholder="Votre message..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" data-i18n="contact.send" style="width:100%;justify-content:center;">
-            Envoyer le message
-          </button>
-          <p class="form-note" data-i18n="contact.note">Ouvre votre application de messagerie avec le message pré-rempli.</p>
-          <p class="form-note" style="margin-top:6px;">
-            💬 Ou contactez-moi directement sur <a href="https://wa.me/237659827131" target="_blank" style="color:var(--gold);">WhatsApp</a>
-          </p>
-        </form>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- ===== CONTACT ===== -->
+    <section class="section" id="contact" style="border-bottom:none;">
+      <div class="container">
+        <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+        <h2 class="section-title" data-i18n="contact.title">Travaillons ensemble</h2>
+        <p class="section-sub" data-i18n="contact.sub">Une idée, un projet, une opportunité ? Écrivez-moi.</p>
+        <div class="contact-wrap">
+          <div class="env-file reveal">
+            <div class="env-file-head">contact.env</div>
+            <div class="env-body">
+              <div class="env-row">
+                <span class="env-key">NAME=</span>
+                <span class="env-val">Ateuf Ngeufo Duchel Decarte</span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">ROLE=</span>
+                <span class="env-val" data-i18n="hero.tagrole">Développeur Logiciel</span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">EMAIL=</span>
+                <span class="env-val"><a href="mailto:ducheldecarte@gmail.com">ducheldecarte@gmail.com</a></span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">PHONE=</span>
+                <span class="env-val"><a href="tel:+237659827131">+237 659 827 131</a></span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">PHONE_2=</span>
+                <span class="env-val"><a href="tel:+237651203488">+237 651 203 488</a></span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">WHATSAPP=</span>
+                <span class="env-val"><a href="https://wa.me/237659827131" target="_blank">wa.me/237659827131</a></span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">GITHUB=</span>
+                <span class="env-val"><a href="https://github.com/leduc" target="_blank"
+                    rel="noopener">github.com/leduc</a></span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">LINKEDIN=</span>
+                <span class="env-val"><a href="https://www.linkedin.com/in/duchel-descartes" target="_blank"
+                    rel="noopener">linkedin.com/in/duchel-descartes</a></span>
+              </div>
+              <div class="env-row">
+                <span class="env-key">LOCATION=</span>
+                <span class="env-val">Yaoundé, Cameroun</span>
+              </div>
+            </div>
+          </div>
 
-  <footer class="footer container">
-    <div class="footer-brand">
-      © 2026 Duchel Decarte — <span data-i18n="footer.built">Conçu &amp; développé avec React/TS habits</span>
+          <form class="contact-form reveal" id="contactForm" novalidate>
+            <div class="form-row">
+              <label for="cf-name" data-i18n="contact.name">Nom</label>
+              <input type="text" id="cf-name" name="name" required placeholder="Votre nom">
+            </div>
+            <div class="form-row">
+              <label for="cf-email" data-i18n="contact.email">Email</label>
+              <input type="email" id="cf-email" name="email" required placeholder="votre@email.com">
+            </div>
+            <div class="form-row">
+              <label for="cf-message" data-i18n="contact.message">Message</label>
+              <textarea id="cf-message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" data-i18n="contact.send"
+              style="width:100%;justify-content:center;">
+              Envoyer le message
+            </button>
+            <p class="form-note" data-i18n="contact.note">Ouvre votre application de messagerie avec le message
+              pré-rempli.</p>
+            <p class="form-note" style="margin-top:6px;">
+              💬 Ou contactez-moi directement sur <a href="https://wa.me/237659827131" target="_blank"
+                style="color:var(--gold);">WhatsApp</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer container">
+      <div class="footer-brand">
+        © 2026 Duchel Decarte — <span data-i18n="footer.built">Conçu &amp; développé avec React/TS habits</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:ducheldecarte@gmail.com">Email</a>
+        <a href="https://wa.me/237659827131" target="_blank">WhatsApp</a>
+        <a href="https://github.com/leduc" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/duchel-decarte" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="tel:+237659827131">Téléphone</a>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ===== STATUS BAR ===== -->
+  <footer class="statusbar" role="status">
+    <div class="side">
+      <span class="item">⎇ main</span>
+      <span class="sep">|</span>
+      <span class="item statusbar-hide-mobile" data-i18n="status.location">Yaoundé, Cameroun</span>
+      <span class="sep statusbar-hide-mobile">|</span>
+      <span class="item">● <span data-i18n="status.available">Disponible pour projets</span></span>
     </div>
-    <div class="footer-links">
-      <a href="mailto:ducheldecarte@gmail.com">Email</a>
-      <a href="https://wa.me/237659827131" target="_blank">WhatsApp</a>
-      <a href="https://github.com/leduc" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/duchel-decarte" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="tel:+237659827131">Téléphone</a>
+    <div class="side">
+      <span class="item statusbar-hide-mobile">UTF-8</span>
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="fr" class="active">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
     </div>
   </footer>
 
-</main>
-
-<!-- ===== STATUS BAR ===== -->
-<footer class="statusbar" role="status">
-  <div class="side">
-    <span class="item">⎇ main</span>
-    <span class="sep">|</span>
-    <span class="item statusbar-hide-mobile" data-i18n="status.location">Yaoundé, Cameroun</span>
-    <span class="sep statusbar-hide-mobile">|</span>
-    <span class="item">● <span data-i18n="status.available">Disponible pour projets</span></span>
-  </div>
-  <div class="side">
-    <span class="item statusbar-hide-mobile">UTF-8</span>
-   
-    <div class="lang-switch" id="langSwitch">
-      <button data-lang="fr" class="active">FR</button>
-      <button data-lang="en">EN</button>
-    </div>
-  </div>
-</footer>
-
-
-<div class="chatbot-container" id="chatbotContainer">
-  <button class="chatbot-toggle" id="chatbotToggle" aria-label="Ouvrir le chat">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-    </svg>
-  </button>
-  
-  <div class="chatbot-window" id="chatbotWindow">
-    <div class="chatbot-header">
-      <span>💬 Besoin d'aide ?</span>
-      <button class="chatbot-close" id="chatbotClose">✕</button>
-    </div>
-    <div class="chatbot-messages" id="chatbotMessages">
-      <div class="message bot">
-        Bonjour ! 👋<br>
-        Je suis votre assistant. Quel type de projet souhaitez-vous réaliser ?
+  <!-- ===== CHATBOT ===== -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Ouvrir le chat">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+      </svg>
+    </button>
+    <div class="chatbot-window" id="chatbotWindow">
+      <div class="chatbot-header">
+        <span>💬 Besoin d'aide ?</span>
+        <button class="chatbot-close" id="chatbotClose">✕</button>
+      </div>
+      <div class="chatbot-messages" id="chatbotMessages">
+        <div class="message bot">
+          Bonjour ! 👋<br>
+          Je suis votre assistant. Quel type de projet souhaitez-vous réaliser ?
+        </div>
+      </div>
+      <div class="chatbot-options" id="chatbotOptions">
+        <button class="chat-option" data-project="site-web">🌐 Site Web</button>
+        <button class="chat-option" data-project="application-mobile">📱 Application Mobile</button>
+        <button class="chat-option" data-project="logiciel-web">💻 Logiciel Web / PWA</button>
+        <button class="chat-option" data-project="autre">💡 Autre projet</button>
+      </div>
+      <div class="chatbot-suboptions" id="chatbotSubOptions" style="display:none;">
+        <p style="color:var(--text-dim);font-size:13px;margin-bottom:8px;">Choisissez le type précis :</p>
+        <div id="subOptionsContainer"></div>
+        <button class="chatbot-back" id="chatbotBack"
+          style="margin-top:8px;background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:12px;">←
+          Retour</button>
+      </div>
+      <div class="chatbot-whatsapp" id="chatbotWhatsapp" style="display:none;">
+        <p style="color:var(--text-dim);font-size:14px;margin-bottom:12px;">
+          Parfait ! 📱<br>
+          Contactez-moi directement sur WhatsApp pour discuter de votre projet.
+        </p>
+        <a href="https://wa.me/237659827131?text=Bonjour%20Duchel%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20!"
+          target="_blank" class="btn btn-primary"
+          style="width:100%;justify-content:center;background:#25D366;border-color:#25D366;">
+          💬 Contacter sur WhatsApp
+        </a>
+        <button class="chatbot-reset" id="chatbotReset"
+          style="margin-top:10px;background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:12px;">
+          🔄 Recommencer
+        </button>
       </div>
     </div>
-    
-    <!-- Niveau 1: Type de projet -->
-    <div class="chatbot-options" id="chatbotOptions">
-      <button class="chat-option" data-project="site-web">🌐 Site Web</button>
-      <button class="chat-option" data-project="application-mobile">📱 Application Mobile</button>
-      <button class="chat-option" data-project="logiciel-web">💻 Logiciel Web / PWA</button>
-      <button class="chat-option" data-project="autre">💡 Autre projet</button>
-    </div>
-
-    <!-- Niveau 2: Sous-options avec prix -->
-    <div class="chatbot-suboptions" id="chatbotSubOptions" style="display:none;">
-      <p style="color:var(--text-dim);font-size:13px;margin-bottom:8px;">Choisissez le type précis :</p>
-      <div id="subOptionsContainer"></div>
-      <button class="chatbot-back" id="chatbotBack" style="margin-top:8px;background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:12px;">← Retour</button>
-    </div>
-
-    <!-- Niveau 3: WhatsApp direct -->
-    <div class="chatbot-whatsapp" id="chatbotWhatsapp" style="display:none;">
-      <p style="color:var(--text-dim);font-size:14px;margin-bottom:12px;">
-        Parfait ! 📱<br>
-        Contactez-moi directement sur WhatsApp pour discuter de votre projet.
-      </p>
-      <a href="https://wa.me/237659827131?text=Bonjour%20Duchel%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20!" 
-         target="_blank" 
-         class="btn btn-primary" 
-         style="width:100%;justify-content:center;background:#25D366;border-color:#25D366;">
-        💬 Contacter sur WhatsApp
-      </a>
-      <button class="chatbot-reset" id="chatbotReset" style="margin-top:10px;background:none;border:none;color:var(--text-faint);cursor:pointer;font-size:12px;">
-        🔄 Recommencer
-      </button>
-    </div>
   </div>
-</div>
 
-<script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>
