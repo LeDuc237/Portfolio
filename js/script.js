@@ -50,6 +50,7 @@ const translations = {
     "projects.visit": "Voir le site ↗",
     "projects.geocasa": "PWA offline-first pour la gestion cadastrale et immobilière : dossiers, phases, paiements — accessible même sans connexion internet stable.",
     "projects.foromamed": "Plateforme e-commerce de matériel orthopédique à Yaoundé, avec tarification en FCFA et recherche produit intelligente.",
+    "projects.orthomedical": "Matériel orthopédique et médical à Yaoundé, Cameroun — catalogue produit, tarification en FCFA et gestion de commandes.",
     "projects.yourchemlab": "Application web pour un laboratoire / fournisseur de produits chimiques — catalogue, présentation de service et prise de contact client.",
     "projects.ingenuim": "Site vitrine pour une entreprise d'ingénierie électrique en France — présentation des services et des réalisations.",
     "projects.holding": "Logiciel complet de gestion de structure — RH, finances, projets, reporting, CRM. Un de mes plus grands projets en production.",
@@ -136,6 +137,7 @@ const translations = {
     "projects.visit": "Visit site ↗",
     "projects.geocasa": "Offline-first PWA for cadastral and real-estate management: files, phases, payments — accessible even without a stable internet connection.",
     "projects.foromamed": "E-commerce platform for orthopedic equipment in Yaoundé, with FCFA pricing and smart product search.",
+    "projects.orthomedical": "Orthopedic and medical equipment in Yaoundé, Cameroon — product catalog, FCFA pricing and order management.",
     "projects.yourchemlab": "Web application for a chemical products lab / supplier — catalog, service presentation and client contact.",
     "projects.ingenuim": "Showcase site for an electrical engineering company in France — presenting services and past work.",
     "projects.holding": "Complete structure management software — HR, finances, projects, reporting, CRM. One of my biggest projects in production.",
@@ -180,7 +182,7 @@ const terminalLines = {
     { t: 'indent' }, { t: 'prop', v: 'role' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Développeur Logiciel'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'location' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Yaoundé, Cameroun'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'experience' }, { t: 'punc', v: ': ' }, { t: 'num', v: '5' }, { t: 'punc', v: ', // années' }, { t: 'nl' },
-    { t: 'indent' }, { t: 'prop', v: 'telephone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 659 827 131' }, { t: 'punc', v: ',' }, { t: 'nl' },
+    { t: 'indent' }, { t: 'prop', v: 'telephone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 651 203 488' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'stack' }, { t: 'punc', v: ': [' }, { t: 'str', v: "'React'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'TypeScript'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Next.js'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Vite'" }, { t: 'punc', v: '],' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'buildsOffline' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'usesAI' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'nl' },
@@ -193,7 +195,7 @@ const terminalLines = {
     { t: 'indent' }, { t: 'prop', v: 'role' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Software Engineer'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'location' }, { t: 'punc', v: ': ' }, { t: 'str', v: "'Yaoundé, Cameroon'" }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'experience' }, { t: 'punc', v: ': ' }, { t: 'num', v: '5' }, { t: 'punc', v: ', // years' }, { t: 'nl' },
-    { t: 'indent' }, { t: 'prop', v: 'phone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 659 827 131' }, { t: 'punc', v: ',' }, { t: 'nl' },
+    { t: 'indent' }, { t: 'prop', v: 'phone' }, { t: 'punc', v: ': ' }, { t: 'num', v: '+237 651 203 488' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'stack' }, { t: 'punc', v: ': [' }, { t: 'str', v: "'React'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'TypeScript'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Next.js'" }, { t: 'punc', v: ', ' }, { t: 'str', v: "'Vite'" }, { t: 'punc', v: '],' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'buildsOffline' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'punc', v: ',' }, { t: 'nl' },
     { t: 'indent' }, { t: 'prop', v: 'usesAI' }, { t: 'punc', v: ': ' }, { t: 'kw', v: 'true' }, { t: 'nl' },
@@ -316,7 +318,7 @@ function initContactForm() {
 function initChatbot() {
   const container = document.getElementById('chatbotContainer');
   const toggle = document.getElementById('chatbotToggle');
-  const window = document.getElementById('chatbotWindow');
+  const windowEl = document.getElementById('chatbotWindow');
   const close = document.getElementById('chatbotClose');
   const messages = document.getElementById('chatbotMessages');
   const options = document.getElementById('chatbotOptions');
@@ -396,7 +398,7 @@ function initChatbot() {
     data.subOptions.forEach(sub => {
       const btn = document.createElement('button');
       btn.className = 'chat-option';
-      btn.innerHTML = `${sub.label} — <span style="color:var(--gold);font-weight:600;">${sub.price}</span>`;
+      btn.innerHTML = `${sub.label} — <span style="color:var(--blue);font-weight:600;">${sub.price}</span>`;
       btn.dataset.subId = sub.id;
       btn.addEventListener('click', () => handleSubOption(sub.id));
       subContainer.appendChild(btn);
@@ -440,20 +442,20 @@ function initChatbot() {
         if (subId === 'discuter') {
           message = `Bonjour Duchel, je souhaite discuter de ${projectLabel} car je ne suis pas encore sûr de ce dont j'ai besoin. Pouvez-vous me conseiller ?`;
         }
-        waLink.href = `https://wa.me/237659827131?text=${encodeURIComponent(message)}`;
+        waLink.href = `https://wa.me/237651203488?text=${encodeURIComponent(message)}`;
       }
     }, 600);
   }
 
   toggle.addEventListener('click', () => {
-    window.classList.toggle('open');
-    if (window.classList.contains('open') && messages.children.length === 0) {
+    windowEl.classList.toggle('open');
+    if (windowEl.classList.contains('open') && messages.children.length === 0) {
       resetChat();
     }
   });
 
   close.addEventListener('click', () => {
-    window.classList.remove('open');
+    windowEl.classList.remove('open');
   });
 
   document.querySelectorAll('.chat-option[data-project]').forEach(btn => {
@@ -471,17 +473,17 @@ function initChatbot() {
     const msgs = messages.querySelectorAll('.message');
     if (msgs.length >= 2) {
       msgs[msgs.length - 1].remove();
-      msgs[msgs.length - 1].remove();
+      msgs[msgs.length - 2].remove();
     }
   });
 
   resetBtn.addEventListener('click', resetChat);
 
   document.addEventListener('click', (e) => {
-    if (window.classList.contains('open') &&
+    if (windowEl.classList.contains('open') &&
       !container.contains(e.target) &&
       e.target !== toggle) {
-      window.classList.remove('open');
+      windowEl.classList.remove('open');
     }
   });
 }
